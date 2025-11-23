@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise</title>
+<style>
+    .small {
+    display: none; 
+    }
+    
+    .big {
+        display: inline;
+    }
+    
+    
+    @media only screen and (max-width: 768px) {
+        .small {
+            display: inline;
+            color: white;
+            background-color: red;
+            padding: 5px;
+        }
+    
+        .big {
+            display: none;
+        }
+    }
+    .content {
+    width: clamp(300px, 100%, 800px); 
+    height: 300px; 
+    background-color: yellowgreen; 
+    margin: 20px auto; 
+    }      
+</style>
+</head>
+<body>
+    <div class="content">
+    <span class="small">I'm SMALL </span>
+    <span class="big">I'm BIG </span>
+</div>
+<div class="wrapper">
+    <div class="content"></div>
+</div>
+</body>
+</html>
