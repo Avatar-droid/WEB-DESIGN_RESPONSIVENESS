@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+
+<style>
+body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 50px 0;
+}
+
+.form-container {
+    background-color: white;
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #c8e6c9; 
+    max-width: 650px;
+    width: 100%;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: normal;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 30px;
+}
+
+.form-group.full-width {
+    grid-column: 1 / 3;
+}
+
+input[type="text"], 
+input[type="email"], 
+input[type="password"],
+input[type="number"],
+textarea,
+select {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 0.9em;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: #79c5c9;
+    box-shadow: 0 0 5px rgba(121, 197, 201, 0.5);
+    outline: none;
+}
+
+label {
+    display: block;
+    font-size: 0.9em;
+    color: #4CAF50;
+    margin-bottom: 5px;
+}
+.section-label {
+    color: #333;
+    font-weight: bold;
+}
+
+label[for*="name"]:after,
+label[for="email"]:after,
+label[for="password"]:after,
+label[for="confirm-password"]:after {
+    content: ' *';
+    color: #d9534f;
+}
+
+.radio-group, .checkbox-group {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+.radio-group label, .checkbox-group label {
+    color: #555;
+    font-weight: normal;
+}
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.slider-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.range-value {
+    background-color: #4CAF50;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 0.8em;
+}
+
+.button-container {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.create-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s;
+}
+
+.create-btn:hover {
+    background-color: #45a049;
+}
+</style>
+</head>
+<body>
+    <div class="form-container">
+    <h2>Create Account</h2>
+    <form>
+        <div class="form-grid">
+            
+            <div class="form-group">
+                <label for="first-name">First name </label>
+                <input type="text" id="first-name" placeholder="enter your first name">
+            </div>
+            <div class="form-group">
+                <label for="last-name">Last name </label>
+                <input type="text" id="last-name" placeholder="enter your last name">
+            </div>
+
+            <div class="form-group full-width">
+                <label for="email">Email </label>
+                <input type="email" id="email" placeholder="enter your email">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password </label>
+                <input type="password" id="password" placeholder="enter your password">
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password </label>
+                <input type="password" id="confirm-password" placeholder="enter your password again">
+            </div>
+
+            <div class="form-group">
+                <label class="section-label">Gender</label>
+                <div class="radio-group">
+                    <input type="radio" id="male" name="gender" value="Male">
+                    <label for="male">Male</label>
+                    <input type="radio" id="female" name="gender" value="Female">
+                    <label for="female">Female</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="section-label">Hobbies</label>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="music" name="hobbies" value="Music">
+                    <label for="music">Music</label>
+                    <input type="checkbox" id="sports" name="hobbies" value="Sports">
+                    <label for="sports">Sports</label>
+                    <input type="checkbox" id="travel" name="hobbies" value="Travel">
+                    <label for="travel">Travel</label>
+                    <input type="checkbox" id="movies" name="hobbies" value="Movies">
+                    <label for="movies">Movies</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="section-label" for="income-source">Source of Income</label>
+                <select id="income-source">
+                    <option>Employed</option>
+                    <option>Self-Employed</option>
+                </select>
+            </div>
+            <div class="form-group income-slider-group">
+                <label class="section-label" for="income-range">Income</label>
+                <div class="slider-wrapper">
+                    <input type="range" id="income-range" min="0" max="100" value="20">
+                    <span class="range-value">20K</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="section-label">Upload Profile Picture</label>
+                <input type="file" id="profile-pic">
+            </div>
+            <div class="form-group">
+                <label class="section-label" for="age">Age</label>
+                <input type="number" id="age" value="18" min="18" max="99">
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <label class="section-label" for="bio">Bio</label>
+            <textarea id="bio"></textarea>
+        </div>
+
+        <div class="button-container">
+            <button type="submit" class="create-btn">Create</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
